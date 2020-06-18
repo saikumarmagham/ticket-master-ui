@@ -20,7 +20,12 @@ class Register extends React.Component {
             password: this.state.password
         }
         // console.log(formData)
-        this.props.dispatch(startRegisterUser(formData))
+        const redirect = () => {
+            return this.props.history.push('/users/login')
+        }
+
+        this.props.dispatch(startRegisterUser(formData, redirect))
+        // this.props.dispatch(startRegisterUser(formData, this.props))
     }
 
     handleChange = (e) => {
